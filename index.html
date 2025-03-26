@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indovinelli d’Amore ❤️</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #ffe6e6; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        .question, .finale { display: none; }
+        button { margin-top: 10px; padding: 10px; background: #ff4d4d; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px; }
+        button:hover { background: #cc0000; }
+        input { padding: 8px; width: 80%; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px; text-align: center; }
+        img { width: 100%; border-radius: 10px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Indovinelli per te ❤️</h2>
+    
+    <!-- Primo indovinello -->
+    <div id="step1">
+        <p><strong>Indovinello 1:</strong> Partiamo con quella difficile: Abbiamo un grande amore in comune, ci fanno sorridere, a volte impazzire, ma gli vogliamo bene da morire. Chi sono?</p>
+        <input type="text" id="answer1" placeholder="Scrivi la risposta">
+        <button onclick="checkAnswer(1, 'cani')">Invia</button>
+        <p id="error1" style="color: red; display: none;">Ops! Riprova! ❤️</p>
+    </div>
+
+    <!-- Secondo indovinello -->
+    <div id="step2" class="question">
+        <p>Risposta: I cani, brava amoreee❤️<br>Ora passiamo al prossimo...</p>
+        <p><strong>Indovinello 2:</strong>Sono grasso, peloso, ti tengo caldo e compagnia quando il tuo amore è via, chi sono?</p>
+        <input type="text" id="answer2" placeholder="Scrivi la risposta">
+        <button onclick="checkAnswer(2, 'bearny')">Invia</button>
+        <p id="error2" style="color: red; display: none;">Ops! Riprova! ❤️</p>
+    </div>
+
+    <!-- Terzo indovinello -->
+    <div id="step3" class="question">
+        <p>Risposta: Siii Bearny, brava tataaa<br>Ultimo indovinello...</p>
+        <p><strong>Indovinello 3:</strong> Sono un ricordo felice, congelato nel tempo, posso far piangere o farti sorridere in un secondo e io ci vengo sempre male :). Cosa sono?</p>
+        <input type="text" id="answer3" placeholder="Scrivi la risposta">
+        <button onclick="checkAnswer(3, 'foto')">Invia</button>
+        <p id="error3" style="color: red; display: none;">Ops! Riprova! ❤️</p>
+    </div>
+
+    <!-- Finale con foto -->
+    <div id="finale" class="finale">
+        <p>Risposta: Una nostra foto! 📸❤️</p>
+        <img src="https://imgur.com/a/tKcYHD1" alt="Noi due ❤️">
+        <p>Buon mesiversario, amore mio! Ti amo ❤️</p>
+    </div>
+</div>
+
+<script>
+    function checkAnswer(step, correctAnswer) {
+        let userAnswer = document.getElementById("answer" + step).value.toLowerCase().trim();
+        if (userAnswer === correctAnswer) {
+            document.getElementById("step" + step).style.display = "none";
+            if (step < 3) {
+                document.getElementById("step" + (step + 1)).style.display = "block";
+            } else {
+                document.getElementById("finale").style.display = "block";
+            }
+        } else {
+            document.getElementById("error" + step).style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
